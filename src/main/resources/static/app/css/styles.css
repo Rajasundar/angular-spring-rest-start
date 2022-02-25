@@ -1,0 +1,98 @@
+/*ここで定義する項目
+・フォントサイズ、種類
+・背景色
+ */
+ /**************************************************************
+ * システム全画面共通ＣＳＳ
+ **************************************************************/
+/*--  INPUT全体 --*/
+input { font-family: "ＭＳ ゴシック" ;font-size:10pt;}
+
+/*--  SELECT全体 --*/
+select { font-family: "ＭＳ ゴシック" ;font-size:10pt;}
+
+/*--  TABLE全体 --*/
+table { font-family: "ＭＳ ゴシック" ;font-size:10pt; text-align:left;}
+
+/*--  ページ全体 --*/
+.Body { background-color:#F0FFF0; color:#000000; margin:0 0 0 0; font-family: "ＭＳ ゴシック"}
+
+/*--  表の枠線 --*/
+.Line { background-color:#003366;}
+
+/*-- 各業務のガイダンス --*/
+.GuidanceNormalPosition { color:#000000; background-color:#F0FFF0; font-size:75%;}
+.GuidanceCurrentPosition { color:#000000; background-color:#FFFF33; font-size:75%;}
+
+/*--  エラーメッセージタイトル --*/
+.ErrorTitle {color:#FFFFFF; background-color:#FF3333; height:20px; font-weight:bold; text-align:center;}
+
+/*--  エラーメッセージ --*/
+.ErrorMessage { color:#CC0000; background-color:#FFFFFF;}
+
+/*--  エラー項目 --*/
+.ErrorItem { background-color:#FFCCCC; font-size:10pt;}
+
+/*--  メッセージ領域 --*/
+.OperateGuideMessage { color:#000000; height:20px; background-color:#FFFFCC;}
+
+/*--  通常コンテンツ領域 --*/
+.ContentFrameDiv { width:1300px; text-align:left; border:none 0px;}
+
+/*--  子画面コンテンツ領域 --*/
+.ChildContentFrameDiv { text-align:left;}
+
+/*--  必須項目指示 --*/
+.IndispensableLabel { color:#B22222; font-size:75%;text-align:right; }
+
+/*--  入力・表示領域タイトル --*/
+.AttributeTitle { color:#000000; background-color:#CEE0FA; height:20px; text-align:center; font-weight:bold;}
+
+/*--  入力・表示項目タイトル --*/
+.AttributeLabelL { color:#000000; background-color:#FFFFE0; text-align:left; }
+
+/*!-- 入力・表示領域 --*/
+.AttributeTextL { color:#000000; background-color:#FFFFE0; text-align:left; }
+
+/*--  入力・表示項目タイトル --*/
+.AttributeLabel { color:#000000; background-color:#FFFFE0; padding-left: 2px;padding-right: 2px;}
+
+/*!-- 入力・表示領域 --*/
+.AttributeText { color:#000000; background-color:#FFFFE0; }
+
+/*--  入力・表示領域 --*/
+.AttributeInputText { color:#000000; background-color:#FFFFE0;padding-left: 4px;}
+
+/*--  入力・表示領域 --*/
+.AttributeOutputText { color:#000000; background-color:#FFFFE0; }
+
+/*--  操作ボタン配置領域 --*/
+.Operate { background-color:#CEE0FA; text-align:center; }
+
+/*--  項目強調表示 --*/
+.StressItem  { color:#000000; background-color:#8CCCE6;}
+
+/*--  文字色指定（赤） --*/
+.FontColorRed { color:#FF0000;}
+
+/*--  文字色指定（青） --*/
+.FontColorBlue { color:#0000FF;}
+
+
+/*--  入力・表示領域タイトル(幅詰め) --*/
+.AttributeNarrowTitle { color:#000000; background-color:#CEE0FA; font-weight:bold;}
+
+/*--  スクロールする一覧のDIV定義（横スクロールなし） --*/
+div.ScrDivHead1 { align:center; border-color:#003366; border:solid 1px; border-bottom:none; border-right:none;}
+div.ScrDivBody1 { align:center; border-color:#003366; overflow-y:scroll; overflow-x:hidden; border:solid 1px; border-bottom:none; margin-bottom:0px}
+
+/*--  スクロールする一覧のTABLE罫線定義 --*/
+table.ScrTblSetHead { border-color:#003366; border-collapse: collapse;}
+table.ScrTblSetHead th   { border:solid 1px; border-top:none; border-bottom:none; border-left:none;}
+table.ScrTblSetHead td   { border:solid 1px; border-top:none; border-bottom:none; border-left:none;}
+table.ScrTblSetBody { border-color:#003366; border-collapse: collapse;}
+table.ScrTblSetBody th   { border:solid 1px; border-top:none; border-left:none; word-break: break-all;}
+table.ScrTblSetBody td   { border:solid 1px; border-top:none; border-left:none; word-break: break-all;}
+
+/*--  業務メニューのタイトル部 --*/
+.topPage { background-color:#339966; color:#FFFFFF; font-size:16pt; font-style:italic; font-weight:bold;}

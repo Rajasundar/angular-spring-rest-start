@@ -1,0 +1,117 @@
+<table border="0" width="100%">
+        <tr>
+            <td><img src="./images/ISS-logo.gif" width="250" height="75"
+                alt="SPEC ロゴマーク" /></td>
+        </tr>
+    </table>
+    <span id="panel2">
+            <input type="hidden" name="frm" value="frm" />
+
+
+            <div class="ContentFrameDiv">
+                <table class="Line" border="0" width="60%" cellspacing="0"
+                    cellpadding="0" align="center">
+                    <tr>
+                        <td>
+                            <table border="0" width="100%" cellspacing="1" cellpadding="1">
+                                <tr>
+                                    <th class="AttributeTitle" colspan="2" style="height: 24px;">ログオン</th>
+                                </tr>
+                                <tr>
+                                    <td class="AttributeLabel" style="width: 30%; height: 24px;">
+                                        <table>
+                                            <tr>
+                                                <th class="AttributeLabel"
+                                                    style="width: 99%; text-align: left;">ユーザID</th>
+                                                <th class="IndispensableLabel"
+                                                    style="vertical-align: middle; text-align: right;">※</th>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="AttributeInputText" style="text-align: left;"><input
+                                        id="userid" type="text" name="userid" autocomplete="off"
+                                        maxlength="8" size="8" ng-model="user.username"
+                                        style="font-size: 10pt; ime-mode: inactive" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="AttributeLabel" style="width: 30%; height: 24px;">
+                                        <table>
+                                            <tr>
+                                                <th class="AttributeLabel"
+                                                    style="width: 99%; text-align: left;">パスワード</th>
+                                                <th class="IndispensableLabel"
+                                                    style="vertical-align: middle; text-align: right;">※</th>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <td class="AttributeInputText" style="text-align: left;"><input
+                                        id="password" type="password" name="password" ng-model="user.password"
+                                        autocomplete="off" value="" maxlength="30" size="60"
+                                        style="font-size: 10pt; ime-mode: inactive" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="Operate" colspan="2"
+                                        style="height: 24px; text-align: center;"><input
+                                        id="login" name="login"
+                                        value="ログオン" style="font-size: 10pt" type="button" ng-click="loginDashBoard()" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+
+                </table>
+                <br /> <br />
+            </div>
+            <input type="hidden" name="javax.faces.ViewState"
+                id="javax.faces.ViewState"
+                value="3880530072734354678:1076686224809876976" autocomplete="off" />
+    </span>
+    <span id="waittingMessage"><span style="display: none;"
+        class="rf-st-start"></span><span class="rf-st-stop"></span>
+    <script type="text/javascript"></script></span>
+    <div id="waitPanel" style="visibility: hidden; margin-left: 30%;">
+        <div class="rf-pp-shade" id="waitPanel_shade" style="z-index: 100;">
+            <button class="rf-pp-btn" id="waitPanelFirstHref"
+                name="waitPanelfirstHref"></button>
+        </div>
+        <div class="rf-pp-cntr " id="waitPanel_container"
+            style="position: fixed; z-index: 100; background-color: transparent; valign: top; align: center; border: 0px; padding: 0; margine: 0px">
+            <div class="rf-pp-shdw" id="waitPanel_shadow"></div>
+            <div class="rf-pp-cnt-scrlr" id="waitPanel_content_scroller">
+                <div class="rf-pp-cnt" id="waitPanel_content"
+                    style="background-color: transparent; valign: top; align: center; border: 0px; padding: 0; margine: 0px">
+                    <span id="j_idt26">
+                        <table border="2" cellspacing="0" cellpadding="2" width="425px"
+                            height="116px" bgcolor="#79ade6" bordercolorlight="#c5e4ff"
+                            bordercolordark="#325c75" style="text-align: center !important;">
+                            <tr>
+                                <td
+                                    style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px"><table
+                                        style="border-bottom-style: inset; border-left-style: inset; border-right-style: inset; border-top-style: inset"
+                                        border="1" cellspacing="0" cellpadding="0" width="100%"
+                                        height="100%" bgcolor="#79ade6" bordercolorlight="#c5e4ff"
+                                        bordercolordark="#325c75">
+                                        <tr>
+                                            <td
+                                                style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px"><table
+                                                    id="errorMsgtb" border="0" cellspacing="0" cellpadding="0"
+                                                    width="100%" height="110px" bgcolor="#79ade6">
+                                                    <tr>
+                                                        <td style="text-align: right; width: 25%"><img
+                                                            src="./images/loading.gif" /></td>
+                                                        <td id="msgtd" style="text-align: center;">処理中です。しばらくお待ち下さい。</td>
+                                                    </tr>
+                                                </table></td>
+                                        </tr>
+                                    </table></td>
+                            </tr>
+                        </table>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript"></script>
+
+    </div>

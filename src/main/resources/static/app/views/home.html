@@ -1,0 +1,735 @@
+<script type="text/javascript">					
+jQuery(function($) {
+    $(document).keydown(function(e) {					
+          var element = e.target.nodeName.toLowerCase();					
+          //入力項目にESCキーを回避する					
+          if ((e.keyCode == 27) && element == 'input') {					
+               return false;					
+          }					
+         //FORMにENTRYキーを回避する					
+         if ((e.keyCode == 13) && (element == 'table' || element == 'td' || element == 'div')) {					
+             return false;					
+        }					
+    });	
+
+    $("#show_view").click(function(e) {
+    		$("#table_1").css("display" , "block");
+ 			$("#table_2").css("display" , "block");
+    });	
+
+    $("#hide_view").click(function(e) {
+    		$("#table_1").css("display" , "none");
+ 			$("#table_2").css("display" , "none");
+    });				
+ });
+
+ 				
+</script>
+<div ng-include="'views/includes/topNavigation.html'" id="headarea" align="center">
+		
+	</div>
+	<span id="waittingMessage"><span style="display: none"
+		class="rf-st-start"></span><span class="rf-st-stop"></span> </span>
+	<div id="waitPanel" style="visibility: hidden;">
+		<div class="rf-pp-shade" id="waitPanel_shade" style="z-index: 100;">
+			<button class="rf-pp-btn" id="waitPanelFirstHref"
+				name="waitPanelfirstHref"></button>
+		</div>
+		<div class="rf-pp-cntr " id="waitPanel_container"
+			style="position: fixed; z-index: 100; background-color: transparent; valign: top; align: center; border: 0px; padding: 0; margine: 0px">
+			<div class="rf-pp-shdw" id="waitPanel_shadow"></div>
+			<div class="rf-pp-cnt-scrlr" id="waitPanel_content_scroller">
+				<div class="rf-pp-cnt" id="waitPanel_content"
+					style="background-color: transparent; valign: top; align: center; border: 0px; padding: 0; margine: 0px">
+					<span id="j_idt59">
+						<table border="2" cellspacing="0" cellpadding="2" width="425px"
+							height="116px" bgcolor="#79ade6" bordercolorlight="#c5e4ff"
+							bordercolordark="#325c75">
+							<tr>
+								<td
+									style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px"><table
+										style="border-bottom-style: inset; border-left-style: inset; border-right-style: inset; border-top-style: inset"
+										border="1" cellspacing="0" cellpadding="0" width="100%"
+										height="100%" bgcolor="#79ade6" bordercolorlight="#c5e4ff"
+										bordercolordark="#325c75">
+										<tr>
+											<td
+												style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px"><table
+													id="errorMsgtb" border="0" cellspacing="0" cellpadding="0"
+													width="100%" height="110px" bgcolor="#79ade6">
+													<tr>
+														<td style="text-align: right; width: 25%"><img
+															src="images/loading.gif" /></td>
+														<td id="msgtd" style="text-align: center;">処理中です。しばらくお待ち下さい。</td>
+													</tr>
+												</table></td>
+										</tr>
+									</table></td>
+							</tr>
+						</table>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="contents">
+		<span id="frmpanel">
+			<form id="specOtherfrm" name="specOtherfrm" method="post"
+				action="/ISS/SpecOther.xhtml"
+				enctype="application/x-www-form-urlencoded">
+				<input type="hidden" name="specOtherfrm" value="specOtherfrm" /> <input
+					type="submit" style="width: 0px; height: 0px; margin-left: -20px;"
+					onclick="return false;" tabindex="-1" /><span id="basecommpanel">
+
+					<script language="JavaScript">					
+					
+/**					
+ * エラー情報を表示					
+ */					
+function errorItem(obj) {					
+    var curForm=document.getElementById(obj);					
+    var elementCount = curForm.length;					
+    var i = 0;					
+    for (i = 0; i < elementCount; ++i) {					
+        var obj = curForm.elements[i];					
+        if (!(obj.tagName == 'INPUT' && obj.type == 'hidden') &&  obj.readOnly != true) {					
+            obj.focus();					
+					
+            break;					
+        }					
+    }					
+    var first =false;					
+    					
+					
+}					
+/**					
+ * 帳票プレビューを表示					
+ */					
+function showPDF(formId) {					
+    var day=new Date();					
+    var id=day.getTime();					
+    var pdfWin = window.open('',id,"width=800,height=700,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes");					
+    document.getElementById(formId).target=id;					
+    if (window.focus) {					
+      pdfWin.focus()					
+    }					
+}					
+					
+</script>
+					<table class="Line" border="0" width="1300px"  cellspacing="0"
+						cellpadding="0" align="center">
+					</table>
+				</span>
+				<table border="1" width="1300px" cellspacing="0" cellpadding="0"
+					align="center" style="border-collapse: collapse;">
+					<tr>
+						<th class="AttributeTitle" style="height: 24px;" colspan="4"
+							align="center">XXXXXXXXX</th>
+					</tr>
+				</table>
+				<div class="rf-p " id="pricepanel"
+					style="background-color: #F0FFF0; width: 1296px; height:500px; margin: auto; border-color: #000000; border-top: none;">
+					<div class="rf-p-hdr " id="pricepanel_header">
+						<span style="font-size: 10pt;">売価入力</span>
+					</div>
+					<div class="rf-p-b " id="pricepanel_body">
+						<table border="0" cellspacing="0" cellpadding="2" align="center"
+							style="width: 100%; border-collapse: collapse;">
+							<tr>
+								<td>
+									<table border="1" cellspacing="0" cellpadding="0" align="left"
+										style="width: 100%; border-collapse: collapse;">
+										<tr>
+											<td class="AttributeLabel" style="height: 24px; width: 200px">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">XXXXXX</th>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px; width: 260px">
+												<table>
+													<tr>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"><select
+															id="salesUnit" name="salesUnit" size="1"
+															style="font-size: 10pt; width: 150px; margin-left: 1px;">
+																<option value="" selected="selected">選択なし</option>
+																<option value="0">セット</option>
+																<option value="1">枚</option>
+																<option value="2">個</option>
+																<option value="3">巻</option>
+																<option value="4">冊</option>
+																<option value="5">箱</option>
+																<option value="6">式</option>
+																<option value="7">束</option>
+																<option value="8">本</option>
+																<option value="9">シート</option>
+																<option value="10">包</option>
+																<option value="11">帯</option>
+																<option value="12">袋</option>
+																<option value="13">坪</option>
+														</select></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px; width: 200px">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">販売単価</th>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<td class="AttributeInputText" style="text-align: left;"><input
+															id="salesUnitPrice" type="text" name="salesUnitPrice"
+															autocomplete="off" value="" maxlength="16" size="80"
+															style="font-size: 10pt; ime-mode: inactive; text-align: right;"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+
+
+										<!-- second row -->
+										<tr>
+											<td class="AttributeLabel" style="height: 24px; width: 200px">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">XXXXXX</th>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px; width: 260px">
+												<table>
+													<tr>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"><select
+															id="salesUnit" name="salesUnit" size="1"
+															style="font-size: 10pt; width: 250px; margin-left: 1px;">
+																<option value="" selected="selected">選択なし</option>
+																<option value="0">セット</option>
+																<option value="1">枚</option>
+																<option value="2">個</option>
+																<option value="3">巻</option>
+																<option value="4">冊</option>
+																<option value="5">箱</option>
+																<option value="6">式</option>
+																<option value="7">束</option>
+																<option value="8">本</option>
+																<option value="9">シート</option>
+																<option value="10">包</option>
+																<option value="11">帯</option>
+																<option value="12">袋</option>
+																<option value="13">坪</option>
+														</select></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px; width: 200px">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">販売単価</th>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<td class="AttributeInputText" style="text-align: left;"><input
+															id="salesUnitPrice" type="text" name="salesUnitPrice"
+															autocomplete="off" value="" maxlength="16" size="80"
+															style="font-size: 10pt; ime-mode: inactive; text-align: right;"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+
+
+
+										<!-- third row -->
+										<tr>
+											<td class="AttributeLabel" style="height: 24px; width: 200px">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">XXXXXX</th>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px; width: 260px">
+												<table>
+													<tr>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"><select
+															id="salesUnit" name="salesUnit" size="1"
+															style="font-size: 10pt; width: 150px; margin-left: 1px;">
+																<option value="" selected="selected">選択なし</option>
+																<option value="0">セット</option>
+																<option value="1">枚</option>
+																<option value="2">個</option>
+																<option value="3">巻</option>
+																<option value="4">冊</option>
+																<option value="5">箱</option>
+																<option value="6">式</option>
+																<option value="7">束</option>
+																<option value="8">本</option>
+																<option value="9">シート</option>
+																<option value="10">包</option>
+																<option value="11">帯</option>
+																<option value="12">袋</option>
+																<option value="13">坪</option>
+														</select></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px; width: 200px">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">販売単価</th>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<td class="AttributeInputText" style="text-align: left;"><input
+															id="salesUnitPrice" type="text" name="salesUnitPrice"
+															autocomplete="off" value="" maxlength="16" size="80"
+															style="font-size: 10pt; ime-mode: inactive; text-align: right;"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+
+
+
+										<tr>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">XXXXXX</th>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<td class="AttributeInputText" style="text-align: left;"><input
+															id="salesUnitPrice" type="text" name="salesUnitPrice"
+															autocomplete="off" value="" maxlength="16" size="20"
+															style="font-size: 10pt; ime-mode: inactive; text-align: right;"></td>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">前回販売金額</th>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<td class="AttributeInputText" style="text-align: left;"><input
+															id="salesUnitPrice" type="text" name="salesUnitPrice"
+															autocomplete="off" value="" maxlength="16" size="80"
+															style="font-size: 10pt; ime-mode: inactive; text-align: right;"></td>
+													</tr>
+												</table>
+											</td>
+										<tr>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">XXXXXX</th>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<td class="AttributeInputText" style="text-align: left;"><input
+															id="salesUnitPrice" type="text" name="salesUnitPrice"
+															autocomplete="off" value="" maxlength="16" size="10"
+															style="font-size: 10pt; ime-mode: inactive; text-align: right;"></td>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<th class="AttributeLabel" style="text-align: left;">前回販売金額</th>
+														<th class="IndispensableLabel"
+															style="vertical-align: middle; text-align: right;"></th>
+													</tr>
+												</table>
+											</td>
+											<td class="AttributeLabel" style="height: 24px;">
+												<table>
+													<tr>
+														<td class="AttributeInputText" style="text-align: left;"><input
+															id="salesUnitPrice" type="text" name="salesUnitPrice"
+															autocomplete="off" value="" maxlength="16" size="80"
+															style="font-size: 10pt; ime-mode: inactive; text-align: right;"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 100%;">
+									<table border="1" cellspacing="0" cellpadding="0"
+										align="center"
+										style="width: 100%; border-collapse: collapse; margin-top: -1px">
+										<tr>
+											<td class="Operate" style="text-align: center; height: 24px;"><input
+												id="show_view" name="j_idt1275"
+												value="確認" style="font-size: 10pt" type="button" /><label>
+											</label><input id="hide_view" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" />
+												<input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 100%;">
+									<table border="1" cellspacing="0" cellpadding="0"
+										align="ce
+										style="width: 100%; border-collapse: collapse; margin-top: -1px">
+										<tr>
+							</tr>		
+ <table border="0" cellspacing="0" cellpadding="0" align="left"  id="table_1" style="width:9%;border-collapse:collapse ;display: none;">					
+               	<td class="AttributeLabel" style="height: 24px;width:110px">					
+                                    <table>					
+                                        <tr>					
+                                            <th class="AttributeLabel" style="text-align: left;border: none;width: auto;"><div class="rf-p-hdr"><span style="font-size:10pt;">XXXXXX</span></div></th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>	
+                                        <tr>					
+                                            <td class="AttributeInputText" style="text-align: left;height: 20px;width: auto;"><span style="font-size:10pt;display: block;">XXXXXX<span style="color:red;">  (1)</span></span>					
+                                </td>				
+                                        </tr>	
+                                         <tr>					
+                                            <td class="AttributeInputText" style="text-align: left;height: 20px;width: auto;"><span style="font-size:10pt;display: block;">XXXXXX<span style="color:red;">  (2)</span></span>			
+                                </td>				
+                                        </tr>
+                                         <tr>					
+                                            <td class="AttributeInputText" style="text-align: left;height: 20px;width: auto;"><span style="font-size:10pt;display: block;">XXXXXX<span style="color:red;">  (1)</span></span>					
+                                </td>				
+                                        </tr>
+                                         <tr>					
+                                            <td class="AttributeInputText" style="text-align: left;height: 24px;width: auto;"><a href="#"><span style="font-size:10pt;display: block;">XXXXXX<span style="color:red;">  (3)</span></span></a>		
+                                </td>				
+                                        </tr>				
+                                    </table>					
+                                </td>
+                            </table>
+
+                            <table border="0" cellspacing="0" cellpadding="2" align="right" style="width:91%;border-collapse:collapse ;">	
+
+               <tr>
+               <td>			
+               <td>					
+               <table border="1" cellspacing="0" cellpadding="0" align="right" id="table_2" style="width:100%;border-collapse:collapse ;display: none;">					
+					
+                              <tr style="background-color:#4A75B5;">	
+                              	
+                                <td class="AttributeLabel" style="height: 24px;width:120px;background-color:#4A75B5;">					
+                                    <table>					
+                                        <tr>	
+
+                                            <th class="AttributeLabel" style="text-align: left;background-color:#4A75B5;color: white;">見積番号</th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>					
+                                    </table>					
+                                </td>			
+                                <td class="AttributeLabel" style="height: 24px;width:120px;background-color:#4A75B5;">					
+                                    <table>					
+                                        <tr>					
+                                            <th class="AttributeLabel" style="text-align: left;background-color:#4A75B5;color: white;">ステータス</th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>					
+                                    </table>					
+                                </td>					
+                                <td class="AttributeLabel" style="height: 24px;width:150px;background-color:#4A75B5;">					
+                                    <table>					
+                                        <tr>					
+                                            <th class="AttributeLabel" style="text-align: left;background-color:#4A75B5;color: white;">作成日</th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>					
+                                    </table>					
+                                </td>					
+                                <td class="AttributeLabel" style="height: 24px;width:120px;background-color:#4A75B5;">					
+                                    <table>					
+                                        <tr>					
+                                            <th class="AttributeLabel" style="text-align: left;background-color:#4A75B5;color: white;">担当者</th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>					
+                                    </table>					
+                                </td>					
+                                <td class="AttributeLabel" style="height: 24px;width:90px;background-color:#4A75B5;">					
+                                    <table>					
+                                        <tr>					
+                                            <th class="AttributeLabel" style="text-align: left;background-color:#4A75B5;color: white;">顧客名</th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>					
+                                    </table>					
+                                </td>					
+                                <td class="AttributeLabel" style="height: 24px;width:90px;background-color:#4A75B5;">					
+                                    <table>					
+                                        <tr>					
+                                            <th class="AttributeLabel" style="text-align: left;background-color:#4A75B5;color: white;">商品名</th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>					
+                                    </table>					
+                                </td>					
+                                <td class="AttributeLabel" style="height: 24px;width:150px;background-color:#4A75B5;">					
+                                    <table>					
+                                        <tr>					
+                                            <th class="AttributeLabel" style="text-align: left;background-color:#4A75B5;color: white;">PID</th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>					
+                                    </table>					
+                                </td>					
+                                <td class="AttributeLabel" style="height: 24px;width:90px;background-color:#4A75B5;">					
+                                    <table>					
+                                        <tr>					
+                                            <th class="AttributeLabel" style="text-align: left;background-color:#4A75B5;color: white;">納入予定日</th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>					
+                                    </table>					
+                                </td>					
+                                <td class="AttributeLabel" style="height: 24px;width:180px;background-color:#4A75B5;">					
+                                    <table>					
+                                        <tr>					
+                                            <th class="AttributeLabel" style="text-align: left;background-color:#4A75B5;color: white;"></th>					
+                                            <th class="IndispensableLabel" style="vertical-align: middle; text-align: right;"></th>					
+                                        </tr>					
+                                    </table>					
+                                </td>					
+                               </tr>					
+					
+
+					
+                              <tr>
+
+				
+                                <td class="AttributeInputText" style="text-align: left;">O1701353					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">製造</td>					
+                                
+                                <td class="AttributeInputText" style="text-align: left;">07-09-2017  10:53:17					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">横溝　春樹			
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">顧客名1	
+                                </td>			
+                                <td class="AttributeInputText" style="text-align: left;">O1701353 </td>							
+                                <td class="AttributeInputText" style="text-align: left;">取替え用ﾎﾞﾝﾍﾞ（９４８４）				
+                                </td>
+                                 <td class="AttributeInputText" style="text-align: left;">9656-0058				
+                                </td>	
+                                <td class="AttributeInputText" style="text-align: left;">
+                                	<input
+												id="j_idt1275" name="j_idt1275"
+												value="確認" style="font-size: 10pt" type="button" ng-click="redirectToOthers()" /><label>
+											</label><input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" disabled="disabled" />
+												<input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" disabled="disabled" />
+                                </td>				
+                               </tr>
+
+                               <tr>
+
+				
+                                <td class="AttributeInputText" style="text-align: left;">O1701353					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">製造</td>					
+                                
+                                <td class="AttributeInputText" style="text-align: left;">08-09-2017  13:52:52					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">横溝　春樹			
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">顧客名2	
+                                </td>			
+                                <td class="AttributeInputText" style="text-align: left;">O1701359 </td>							
+                                <td class="AttributeInputText" style="text-align: left;">取替え用ﾎﾞﾝﾍﾞ（９４８４）				
+                                </td>
+                                 <td class="AttributeInputText" style="text-align: left;">9656-0058				
+                                </td>	
+                                <td class="AttributeInputText" style="text-align: left;">
+                                	<input
+												id="j_idt1275" name="j_idt1275"
+												value="確認" style="font-size: 10pt" type="button" ng-click="redirectToOthers()" /><label>
+											</label><input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" disabled="disabled" />
+												<input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" />
+                                </td>				
+                               </tr>
+
+                               <tr>
+
+				
+                                <td class="AttributeInputText" style="text-align: left;">O1701303					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">製造</td>					
+                                
+                                <td class="AttributeInputText" style="text-align: left;">29-08-2017  11:38:44					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">横溝　春樹			
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">顧客名3
+                                </td>			
+                                <td class="AttributeInputText" style="text-align: left;">O1701353 </td>							
+                                <td class="AttributeInputText" style="text-align: left;">取替え用ﾎﾞﾝﾍﾞ（９４８４）				
+                                </td>
+                                 <td class="AttributeInputText" style="text-align: left;">9656-0058				
+                                </td>	
+                                <td class="AttributeInputText" style="text-align: left;">
+                                	<input
+												id="j_idt1275" name="j_idt1275"
+												onclick="RichFaces.ajax(&quot;j_idt1275&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="確認" style="font-size: 10pt" type="button" ng-click="redirectToOthers()" /><label>
+											</label><input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" disabled="disabled" />
+												<input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" disabled="disabled" />
+                                </td>				
+                               </tr>
+
+
+                               <tr>
+
+				
+                                <td class="AttributeInputText" style="text-align: left;">B1701773					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">製造</td>					
+                                
+                                <td class="AttributeInputText" style="text-align: left;">01-09-2017  15:07:11					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">横溝　春樹			
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">顧客名4
+                                </td>			
+                                <td class="AttributeInputText" style="text-align: left;">O1701353 </td>							
+                                <td class="AttributeInputText" style="text-align: left;">取替え用ﾎﾞﾝﾍﾞ（９４８４）				
+                                </td>
+                                 <td class="AttributeInputText" style="text-align: left;">9630-0058				
+                                </td>	
+                                <td class="AttributeInputText" style="text-align: left;">
+                                	<input
+												id="j_idt1275" name="j_idt1275"
+												onclick="RichFaces.ajax(&quot;j_idt1275&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="確認" style="font-size: 10pt" type="submit" disabled="disabled" /><label>
+											</label><input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit"  />
+												<input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" />
+                                </td>				
+                               </tr>
+
+
+                               <tr>
+
+				
+                                <td class="AttributeInputText" style="text-align: left;">O1701305					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">製造</td>					
+                                
+                                <td class="AttributeInputText" style="text-align: left;">07-09-2017  10:53:17					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">横溝　春樹			
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">顧客名5	
+                                </td>			
+                                <td class="AttributeInputText" style="text-align: left;">O1701353 </td>							
+                                <td class="AttributeInputText" style="text-align: left;">取替え用ﾎﾞﾝﾍﾞ（９４８４）				
+                                </td>
+                                 <td class="AttributeInputText" style="text-align: left;">9656-0015				
+                                </td>	
+                                <td class="AttributeInputText" style="text-align: left;">
+                                	<input
+												id="j_idt1275" name="j_idt1275"
+												onclick="RichFaces.ajax(&quot;j_idt1275&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="確認" style="font-size: 10pt" type="submit" /><label>
+											</label><input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" />
+												<input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" />
+                                </td>				
+                               </tr>
+
+
+                               <tr>
+
+				
+                                <td class="AttributeInputText" style="text-align: left;">O1701352					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">製造</td>					
+                                
+                                <td class="AttributeInputText" style="text-align: left;">07-09-2017  10:53:17					
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">横溝　春樹			
+                                </td>					
+                                <td class="AttributeInputText" style="text-align: left;">顧客名6
+                                </td>			
+                                <td class="AttributeInputText" style="text-align: left;">O1701353 </td>							
+                                <td class="AttributeInputText" style="text-align: left;">取替え用ﾎﾞﾝﾍﾞ（９４８４）				
+                                </td>
+                                 <td class="AttributeInputText" style="text-align: left;">9656-0058				
+                                </td>	
+                                <td class="AttributeInputText" style="text-align: left;">
+                                	<input
+												id="j_idt1275" name="j_idt1275"
+												onclick="RichFaces.ajax(&quot;j_idt1275&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="確認" style="font-size: 10pt" type="submit" /><label>
+											</label><input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" />
+												<input id="j_idt1277" name="j_idt1277"
+												onclick="RichFaces.ajax(&quot;j_idt1277&quot;,event,{&quot;incId&quot;:&quot;1&quot;} );return false;"
+												value="取消" style="font-size: 10pt" type="submit" disabled="disabled" />
+                                </td>				
+                               </tr>					
+              </table>					
+               </td>					
+               </tr>					
+						</table>
+					</div>
+				</div>
+
+			</table>
+		</td>
+	</tr>
+					</div>
